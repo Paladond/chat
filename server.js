@@ -11,15 +11,15 @@ app.use(express.static('public'));
 
 
 io.on('connection', function(client) {
-	console.log('Client connected...');
 
 	client.on('join', function(data) {
 		console.log(data);
 	});
 
-	client.on('messages', function(data){
+	client.on('messages', function(data, name){
 		client.emit('thread', data);
 		client.broadcast.emit('thread', data);
+		console.log(name);
 	});
 });
 

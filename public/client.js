@@ -4,7 +4,7 @@
             socket.emit('join', 'Hello server from client');
          });
 
-         // listener for 'thread' event, which updates messages
+         // listener for event, which updates messages
          socket.on('thread', function(data) {
             $('#thread').append('<li>' + data + '</li>');
          });
@@ -12,7 +12,8 @@
          // prevents form from submitting and sends a message to server
          $('form').submit(function(){
             var message = $('#message').val();
-            socket.emit('messages', message);
+			var name = $('#name').val();
+            socket.emit('messages', message, name);
             this.reset();
             return false;
          });
