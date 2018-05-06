@@ -6,6 +6,7 @@ html, body {
 html,body,li,form,ul {
   padding: 0;
   margin: 0;
+  background-color: #33FFFF
 }
 
 form {
